@@ -1,10 +1,9 @@
-import Bloque1.menuBloque1   // o Bloque1.menuBloque1 si no cambiaste el nombre del paquete
+import Bloque1.menuBloque1
 import Bloque2.menuBloque2
 import Bloque3.menuBloque3
-import java.util.Locale
 
 fun main() {
-    Locale.setDefault(Locale.US)   // configuración inicial, una sola vez
+
     menuPrincipal()
 }
 

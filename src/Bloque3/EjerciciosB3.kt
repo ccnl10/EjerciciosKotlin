@@ -10,7 +10,7 @@ package Bloque3
 // EJERCICIO 1 ·
 // ===================================================================
 fun b3Ejercicio1() {
-    println("Ejercicio 1 bloque2")
+    println("Ejercicio 1 bloque3")
     // tu código
 }
 
@@ -18,7 +18,7 @@ fun b3Ejercicio1() {
 // EJERCICIO 2 ·
 // ===================================================================
 fun b3Ejercicio2() {
-    println("Ejercicio 2 bloque2")
+    println("Ejercicio 2 bloque3")
     // tu código
 }
 
@@ -26,7 +26,7 @@ fun b3Ejercicio2() {
 // EJERCICIO 3 ·
 // ===================================================================
 fun b3Ejercicio3() {
-    println("Ejercicio 3 bloque2")
+    println("Ejercicio 3 bloque3")
     // tu código
 }
 
@@ -34,7 +34,7 @@ fun b3Ejercicio3() {
 // EJERCICIO 4 ·
 // ===================================================================
 fun b3Ejercicio4() {
-    println("Ejercicio 4 bloque2")
+    println("Ejercicio 4 bloque3")
     // tu código
 }
 
@@ -42,7 +42,7 @@ fun b3Ejercicio4() {
 // EJERCICIO 5 ·
 // ===================================================================
 fun b3Ejercicio5() {
-    println("Ejercicio 5 bloque2")
+    println("Ejercicio 5 bloque3")
     // tu código
 }
 
@@ -50,7 +50,7 @@ fun b3Ejercicio5() {
 // EJERCICIO 6 ·
 // ===================================================================
 fun b3Ejercicio6() {
-    println("Ejercicio 6 bloque2")
+    println("Ejercicio 6 bloque3")
     // tu código
 }
 

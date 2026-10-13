@@ -1,7 +1,5 @@
 package Bloque1
 
-import menuPrincipal
-
 fun menuBloque1() {
     var opcion: Int?
 
@@ -30,7 +28,7 @@ fun menuBloque1() {
             4 -> b1Ejercicio4()
             5 -> b1Ejercicio5()
             6 -> b1Ejercicio6()
-            7 -> menuPrincipal()
+            7 -> println("Volviendo al menú principal...")
             else -> println("Opción no válida, inténtalo de nuevo.")
         }
     } while (opcion != 7)

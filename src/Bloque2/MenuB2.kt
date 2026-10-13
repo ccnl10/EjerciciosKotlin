@@ -1,7 +1,5 @@
 package Bloque2
 
-import menuPrincipal
-
 // ===================================================================
 // MENÚ DEL BLOQUE 2
 // ===================================================================
@@ -35,7 +33,7 @@ fun menuBloque2() {
             5 -> b2Ejercicio5()
             6 -> b2Ejercicio6()
             7 -> b2Reto()
-            8 -> menuPrincipal()
+            8 -> println("Volviendo al menú principal...")
             else -> println("Opción no válida, inténtalo de nuevo.")
         }
     } while (opcion != 8)

@@ -1,39 +1,67 @@
 package Bloque3
 
+import Utilidades.*
+
+/**
+ * Muestra el menú del bloque 3, que da paso a sus dos partes.
+ *
+ * La opción 1 abre [menuBloque3_1] (funciones) y la 2 abre [menuBloque3_2]
+ * (expresiones lambda). Con la opción 3 se vuelve a `menuPrincipal`. Si el
+ * usuario escribe `?`, se muestra [ayudaBloque3].
+ */
 fun menuBloque3() {
     var opcion: Int?
+    var entrada: String?
 
     do {
+        print(AZUL)
         println()
         println("========================================")
         println("     MENÚ - EJERCICIOS DEL BLOQUE 3     ")
         println("              Funciones                 ")
         println("========================================")
-        println("1. Saludos")
-        println("2. Conversor de unidades")
-        println("3. Generador de nombres de usuario")
-        println("4. Cláusulas de guarda")
-        println("5. Encuentra los errores")
-        println("6. Calculadora de productos")
-        println("7. Reto: Mes y estación")
-        println("8. Reto: Adivina el número")
-        println("9. Volver al menú principal")
+        println("1. Ejercicios 3. Parte 1 Funciones")
+        println("2. Ejercicios 3. Parte 2 Funciones lambda")
+        println("3. Volver al menú principal")
+        println("?. Ayuda")
         println("========================================")
         print("Elige una opción: ")
+        print(RESET)
 
-        opcion = readln().toIntOrNull()
+        entrada = readln().trim()
+        opcion = entrada.toIntOrNull()
+
+        // "?" muestra la ayuda de este menú y vuelve a pintarlo
+        if (entrada == "?") {
+            ayudaBloque3()
+            continue
+        }
 
         when (opcion) {
-            1 -> b3Ejercicio1()
-            2 -> b3Ejercicio2()
-            3 -> b3Ejercicio3()
-            4 -> b3Ejercicio4()
-            5 -> b3Ejercicio5()
-            6 -> b3Ejercicio6()
-            7 -> b3ERetoMesEstacion()
-            8 -> b3RetoAdivina()
-            9 -> println("Volviendo al menú principal...")
-            else -> println("Opción no válida, inténtalo de nuevo.")
+            1 -> menuBloque3_1()
+            2 -> menuBloque3_2()
+            3 -> mostrarAviso("Volviendo al menú principal...")
+            else -> mostrarError("Opción no válida, inténtalo de nuevo.")
         }
-    } while (opcion != 9)
+    } while (opcion != 3)
+}
+
+/**
+ * Muestra la ayuda del menú del bloque 3.
+ *
+ * Se llama cuando el usuario escribe `?` en lugar de un número.
+ */
+fun ayudaBloque3() {
+    mostrarAyuda(
+        "Menú del bloque 3",
+        listOf(
+            "El bloque 3 está dividido en dos partes, cada una con su propio menú.",
+            "",
+            "1. Parte 1 · Funciones: parámetros, valores por defecto, argumentos",
+            "   con nombre, valores de retorno y retornos anticipados.",
+            "2. Parte 2 · Expresiones lambda: tipos de función, funciones de orden",
+            "   superior, it, lambdas finales y funciones que devuelven funciones.",
+            "3. Volver al menú principal."
+        )
+    )
 }

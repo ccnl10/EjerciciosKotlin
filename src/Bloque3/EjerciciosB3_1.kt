@@ -3,13 +3,13 @@ package Bloque3
 // ===================================================================
 // EJERCICIOS DEL BLOQUE 3 · Funciones
 // Cada función hace el papel del "main" de su ejercicio: solo debe
-// llamar a otras funciones. Escribe esas funciones en FuncionesB3.kt.
+// llamar a otras funciones. Escribe esas funciones en FuncionesB3_1.kt.
 // ===================================================================
 
 // ===================================================================
 // EJERCICIO 1 ·
 // ===================================================================
-fun b3Ejercicio1() {
+fun b3_1Ejercicio1() {
     println("Ejercicio 1 bloque3")
     // tu código
 }
@@ -17,7 +17,7 @@ fun b3Ejercicio1() {
 // ===================================================================
 // EJERCICIO 2 ·
 // ===================================================================
-fun b3Ejercicio2() {
+fun b3_1Ejercicio2() {
     println("Ejercicio 2 bloque3")
     // tu código
 }
@@ -25,7 +25,7 @@ fun b3Ejercicio2() {
 // ===================================================================
 // EJERCICIO 3 ·
 // ===================================================================
-fun b3Ejercicio3() {
+fun b3_1Ejercicio3() {
     println("Ejercicio 3 bloque3")
     // tu código
 }
@@ -33,7 +33,7 @@ fun b3Ejercicio3() {
 // ===================================================================
 // EJERCICIO 4 ·
 // ===================================================================
-fun b3Ejercicio4() {
+fun b3_1Ejercicio4() {
     println("Ejercicio 4 bloque3")
     // tu código
 }
@@ -41,7 +41,7 @@ fun b3Ejercicio4() {
 // ===================================================================
 // EJERCICIO 5 ·
 // ===================================================================
-fun b3Ejercicio5() {
+fun b3_1Ejercicio5() {
     println("Ejercicio 5 bloque3")
     // tu código
 }
@@ -49,7 +49,7 @@ fun b3Ejercicio5() {
 // ===================================================================
 // EJERCICIO 6 ·
 // ===================================================================
-fun b3Ejercicio6() {
+fun b3_1Ejercicio6() {
     println("Ejercicio 6 bloque3")
     // tu código
 }
@@ -57,7 +57,7 @@ fun b3Ejercicio6() {
 // ===================================================================
 // RETO ·
 // ===================================================================
-fun b3ERetoMesEstacion() {
+fun b3_1RetoMesEstacion() {
     println("Ejercicio reto")
     // tu código
 }
@@ -65,7 +65,7 @@ fun b3ERetoMesEstacion() {
 // ===================================================================
 // RETO ·
 // ===================================================================
-fun b3RetoAdivina() {
+fun b3_1RetoAdivina() {
     println("Ejercicio reto")
     // tu código
 }

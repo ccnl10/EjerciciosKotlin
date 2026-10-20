@@ -2,8 +2,8 @@ package Bloque3
 
 // ===================================================================
 // FUNCIONES DEL BLOQUE 3
-// Aquí está la lógica. Los ejercicios (EjerciciosB3.kt) solo las funciones
-// que se piden implementar y que se llaman desde EjerciciosB3.kt
+// Aquí está la lógica. Los ejercicios (EjerciciosB3_1.kt) solo las funciones
+// que se piden implementar y que se llaman desde EjerciciosB3_1.kt
 // ===================================================================
 
 // ===================================================================

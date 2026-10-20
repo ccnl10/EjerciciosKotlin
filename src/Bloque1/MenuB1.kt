@@ -1,9 +1,19 @@
 package Bloque1
+import Utilidades.*
 
+/**
+ * Muestra el menú del bloque 1 (variables, tipos y operadores) en un bucle.
+ *
+ * Ejecuta el ejercicio elegido y vuelve a pintar el menú. Con la opción 7 el
+ * bucle termina y el control vuelve a `menuPrincipal`. Si el usuario escribe
+ * `?`, se muestra [ayudaBloque1].
+ */
 fun menuBloque1() {
     var opcion: Int?
+    var entrada: String?
 
     do {
+        print(AZUL)
         println()
         println("========================================")
         println("     MENÚ - EJERCICIOS DEL BLOQUE 1     ")
@@ -16,10 +26,19 @@ fun menuBloque1() {
         println("5. Calculadora de precio")
         println("6. Recibo del presupuesto (ampliación)")
         println("7. Volver al menú principal")
+        println("?. Ayuda")
         println("========================================")
         print("Elige una opción: ")
+        print(RESET)
 
-        opcion = readln().toIntOrNull()
+        entrada = readln().trim()
+        opcion = entrada.toIntOrNull()
+
+        // "?" muestra la ayuda de este menú y vuelve a pintarlo
+        if (entrada == "?") {
+            ayudaBloque1()
+            continue
+        }
 
         when (opcion) {
             1 -> b1Ejercicio1()
@@ -28,8 +47,33 @@ fun menuBloque1() {
             4 -> b1Ejercicio4()
             5 -> b1Ejercicio5()
             6 -> b1Ejercicio6()
-            7 -> println("Volviendo al menú principal...")
-            else -> println("Opción no válida, inténtalo de nuevo.")
+            7 -> mostrarAviso("Volviendo al menú principal...")
+            else -> mostrarError("Opción no válida, inténtalo de nuevo.")
         }
     } while (opcion != 7)
+}
+
+/**
+ * Muestra la ayuda del menú del bloque 1.
+ *
+ * Se llama cuando el usuario escribe `?` en lugar de un número.
+ */
+fun ayudaBloque1() {
+    mostrarAyuda(
+        "Menú del bloque 1",
+        listOf(
+            "Ejercicios de variables, tipos y operadores.",
+            "",
+            "1. Preséntate: muestra datos personales con una plantilla de texto.",
+            "2. ¿val o var?: ejemplos de cuándo usar val y cuándo var.",
+            "3. Encuentra los errores: cinco fragmentos corregidos y explicados.",
+            "4. Conversor de temperatura: pide grados Celsius y los pasa a Fahrenheit.",
+            "5. Calculadora de precio: pide precio, cantidad, descuento e impuesto.",
+            "6. Recibo del presupuesto: como el 5, pero muestra un recibo alineado.",
+            "   Si en el impuesto pulsas Intro sin escribir nada, se aplica un 21 %.",
+            "7. Volver al menú principal.",
+            "",
+            "Los números decimales se pueden escribir con coma (21,5) o con punto (21.5)."
+        )
+    )
 }

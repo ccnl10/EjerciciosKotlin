@@ -1,6 +1,7 @@
 import Bloque1.menuBloque1
 import Bloque2.menuBloque2
 import Bloque3.menuBloque3
+import Bloque4.menuBloque4
 import Utilidades.*
 
 fun main() {
@@ -21,7 +22,8 @@ fun menuPrincipal() {
         println("1. Bloque 1 · Variables, tipos y operadores")
         println("2. Bloque 2 · Condicionales, rangos y bucles")
         println("3. Bloque 3 · Funciones")
-        println("4. Salir")
+        println("4. Bloque 4 · Nulos y colecciones")
+        println("0. Salir")
         println("?. Ayuda")
         println("========================================")
         print("Elige un bloque: ")
@@ -40,11 +42,11 @@ fun menuPrincipal() {
             1 -> menuBloque1()
             2 -> menuBloque2()
             3 -> menuBloque3()
-            4 -> mostrarAviso("¡Hasta luego!")
+            4 -> menuBloque4()
+            0 -> mostrarAviso("¡Hasta luego!")
             else -> mostrarError("Opción no válida, inténtalo de nuevo.")
-            //else -> println("${AMARILLO}Opción no válida, inténtalo de nuevo.${RESET}")
         }
-    } while (opcion != 4)
+    } while (opcion != 0)
 }
 
 
@@ -57,7 +59,8 @@ fun ayudaMenuPrincipal() {
             "1. Bloque 1: variables, tipos de datos, operadores y plantillas de texto.",
             "2. Bloque 2: condicionales (if, when), rangos y bucles (for, while).",
             "3. Bloque 3: funciones (parte 1) y expresiones lambda (parte 2).",
-            "4. Salir: termina el programa.",
+            "4. Bloque 4: tipos nulables y colecciones (listas, conjuntos y mapas).",
+            "0. Salir: termina el programa.",
             "",
             "Escribe el número de una opción y pulsa Intro.",
             "En cualquier menú puedes escribir ? para ver su ayuda.",

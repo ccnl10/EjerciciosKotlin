@@ -4,7 +4,7 @@ import Utilidades.*
 /**
  * Muestra el menú del bloque 1 (variables, tipos y operadores) en un bucle.
  *
- * Ejecuta el ejercicio elegido y vuelve a pintar el menú. Con la opción 7 el
+ * Ejecuta el ejercicio elegido y vuelve a pintar el menú. Con la opción 0 el
  * bucle termina y el control vuelve a `menuPrincipal`. Si el usuario escribe
  * `?`, se muestra [ayudaBloque1].
  */
@@ -25,7 +25,7 @@ fun menuBloque1() {
         println("4. Conversor de temperatura")
         println("5. Calculadora de precio")
         println("6. Recibo del presupuesto (ampliación)")
-        println("7. Volver al menú principal")
+        println("0. Volver al menú principal")
         println("?. Ayuda")
         println("========================================")
         print("Elige una opción: ")
@@ -47,10 +47,10 @@ fun menuBloque1() {
             4 -> b1Ejercicio4()
             5 -> b1Ejercicio5()
             6 -> b1Ejercicio6()
-            7 -> mostrarAviso("Volviendo al menú principal...")
+            0 -> mostrarAviso("Volviendo al menú principal...")
             else -> mostrarError("Opción no válida, inténtalo de nuevo.")
         }
-    } while (opcion != 7)
+    } while (opcion != 0)
 }
 
 /**
@@ -71,7 +71,7 @@ fun ayudaBloque1() {
             "5. Calculadora de precio: pide precio, cantidad, descuento e impuesto.",
             "6. Recibo del presupuesto: como el 5, pero muestra un recibo alineado.",
             "   Si en el impuesto pulsas Intro sin escribir nada, se aplica un 21 %.",
-            "7. Volver al menú principal.",
+            "0. Volver al menú principal.",
             "",
             "Los números decimales se pueden escribir con coma (21,5) o con punto (21.5)."
         )

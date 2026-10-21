@@ -5,7 +5,7 @@ import Utilidades.*
 /**
  * Muestra el menú del bloque 3 · parte 2 (expresiones lambda) en un bucle.
  *
- * Ejecuta el ejercicio elegido y vuelve a pintar el menú. Con la opción 8 se
+ * Ejecuta el ejercicio elegido y vuelve a pintar el menú. Con la opción 0 se
  * vuelve a [menuBloque3]. Si el usuario escribe `?`, se muestra
  * [ayudaBloque3Parte2].
  */
@@ -27,7 +27,7 @@ fun menuBloque3_2() {
         println("5. Tu propio repeat")
         println("6. Predice la salida")
         println("7. Reto: Reglas de descuento")
-        println("8. Volver al menú del bloque 3")
+        println("0. Volver al menú del bloque 3")
         println("?. Ayuda")
         println("========================================")
         print("Elige una opción: ")
@@ -50,10 +50,10 @@ fun menuBloque3_2() {
             5 -> b3_2Ejercicio5()
             6 -> b3_2Ejercicio6()
             7 -> b3_2RetoReglaDescuento()
-            8 -> mostrarAviso("Volviendo al menú del bloque 3...")
+            0 -> mostrarAviso("Volviendo al menú del bloque 3...")
             else -> mostrarError("Opción no válida, inténtalo de nuevo.")
         }
-    } while (opcion != 8)
+    } while (opcion != 0)
 }
 
 /**
@@ -74,7 +74,7 @@ fun ayudaBloque3Parte2() {
             "5. Tu propio repeat: una función que repite una acción varias veces.",
             "6. Predice la salida: resultado de aplicar distintas reglas a un texto.",
             "7. Reto: precios de 50 € y 15 € con distintas reglas de descuento.",
-            "8. Volver al menú del bloque 3."
+            "0. Volver al menú del bloque 3."
         )
     )
 }

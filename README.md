@@ -44,7 +44,7 @@ src/
 │   └── Ayuda.kt            mostrarAyuda(): cuadro de ayuda común a todos los menús
 ├── Bloque1/
 │   ├── MenuB1.kt           menuBloque1()
-│   └── Ejercicios1.kt      b1Ejercicio1() … b1Ejercicio6()
+│   └── EjerciciosB1.kt      b1Ejercicio1() … b1Ejercicio6()
 ├── Bloque2/
 │   ├── MenuB2.kt           menuBloque2()
 │   └── Ejercicios2.kt      b2Ejercicio1() … b2Ejercicio6(), b2Reto()

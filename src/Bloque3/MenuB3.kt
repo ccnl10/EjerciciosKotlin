@@ -6,7 +6,7 @@ import Utilidades.*
  * Muestra el menú del bloque 3, que da paso a sus dos partes.
  *
  * La opción 1 abre [menuBloque3_1] (funciones) y la 2 abre [menuBloque3_2]
- * (expresiones lambda). Con la opción 3 se vuelve a `menuPrincipal`. Si el
+ * (expresiones lambda). Con la opción 0 se vuelve a `menuPrincipal`. Si el
  * usuario escribe `?`, se muestra [ayudaBloque3].
  */
 fun menuBloque3() {
@@ -22,7 +22,7 @@ fun menuBloque3() {
         println("========================================")
         println("1. Ejercicios 3. Parte 1 Funciones")
         println("2. Ejercicios 3. Parte 2 Funciones lambda")
-        println("3. Volver al menú principal")
+        println("0. Volver al menú principal")
         println("?. Ayuda")
         println("========================================")
         print("Elige una opción: ")
@@ -40,10 +40,10 @@ fun menuBloque3() {
         when (opcion) {
             1 -> menuBloque3_1()
             2 -> menuBloque3_2()
-            3 -> mostrarAviso("Volviendo al menú principal...")
+            0 -> mostrarAviso("Volviendo al menú principal...")
             else -> mostrarError("Opción no válida, inténtalo de nuevo.")
         }
-    } while (opcion != 3)
+    } while (opcion != 0)
 }
 
 /**
@@ -61,7 +61,7 @@ fun ayudaBloque3() {
             "   con nombre, valores de retorno y retornos anticipados.",
             "2. Parte 2 · Expresiones lambda: tipos de función, funciones de orden",
             "   superior, it, lambdas finales y funciones que devuelven funciones.",
-            "3. Volver al menú principal."
+            "0. Volver al menú principal."
         )
     )
 }

@@ -5,7 +5,7 @@ import Utilidades.*
 /**
  * Muestra el menú del bloque 3 · parte 1 (funciones) en un bucle.
  *
- * Ejecuta el ejercicio elegido y vuelve a pintar el menú. Con la opción 9 se
+ * Ejecuta el ejercicio elegido y vuelve a pintar el menú. Con la opción 0 se
  * vuelve a [menuBloque3]. Si el usuario escribe `?`, se muestra
  * [ayudaBloque3Parte1].
  */
@@ -28,7 +28,7 @@ fun menuBloque3_1() {
         println("6. Calculadora de productos")
         println("7. Reto: Mes y estación")
         println("8. Reto: Adivina el número")
-        println("9. Volver al menú del bloque 3")
+        println("0. Volver al menú del bloque 3")
         println("?. Ayuda")
         println("========================================")
         print("Elige una opción: ")
@@ -52,10 +52,10 @@ fun menuBloque3_1() {
             6 -> b3_1Ejercicio6()
             7 -> b3_1RetoMesEstacion()
             8 -> b3_1RetoAdivina()
-            9 -> mostrarAviso("Volviendo al menú del bloque 3...")
+            0 -> mostrarAviso("Volviendo al menú del bloque 3...")
             else -> mostrarError("Opción no válida, inténtalo de nuevo.")
         }
-    } while (opcion != 9)
+    } while (opcion != 0)
 }
 
 /**
@@ -77,7 +77,7 @@ fun ayudaBloque3Parte1() {
             "6. Calculadora de productos: cálculo de un precio repartido en funciones.",
             "7. Reto: mes y estación; pide el mes hasta que esté entre 1 y 12.",
             "8. Reto: adivina un número del 1 al 10 en 3 intentos.",
-            "9. Volver al menú del bloque 3."
+            "0. Volver al menú del bloque 3."
         )
     )
 }

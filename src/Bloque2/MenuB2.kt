@@ -8,7 +8,7 @@ import Utilidades.*
 /**
  * Muestra el menú del bloque 2 (condicionales, rangos y bucles) en un bucle.
  *
- * Ejecuta el ejercicio elegido y vuelve a pintar el menú. Con la opción 8 el
+ * Ejecuta el ejercicio elegido y vuelve a pintar el menú. Con la opción 0 el
  * bucle termina y el control vuelve a `menuPrincipal`. Si el usuario escribe
  * `?`, se muestra [ayudaBloque2].
  */
@@ -30,7 +30,7 @@ fun menuBloque2() {
         println("5. Mes del año")
         println("6. Mes y estación")
         println("7. Reto: Adivina el número")
-        println("8. Volver al menú principal")
+        println("0. Volver al menú principal")
         println("?. Ayuda")
         println("========================================")
         print("Elige una opción: ")
@@ -53,10 +53,10 @@ fun menuBloque2() {
             5 -> b2Ejercicio5()
             6 -> b2Ejercicio6()
             7 -> b2Reto()
-            8 -> mostrarAviso("Volviendo al menú principal...")
+            0 -> mostrarAviso("Volviendo al menú principal...")
             else -> mostrarError("Opción no válida, inténtalo de nuevo.")
         }
-    } while (opcion != 8)
+    } while (opcion != 0)
 }
 
 /**
@@ -78,7 +78,7 @@ fun ayudaBloque2() {
             "6. Mes y estación: igual que el 5, añadiendo la estación del año.",
             "7. Reto: adivina un número del 1 al 10 en 3 intentos.",
             "   Los números fuera de rango no gastan intento.",
-            "8. Volver al menú principal."
+            "0. Volver al menú principal."
         )
     )
 }

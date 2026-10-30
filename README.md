@@ -216,10 +216,8 @@ El código está organizado en capas, de modo que cada archivo tiene un solo pap
 |---|---|---|
 | 📘 [Manual de usuario](docs/Manual_Usuario_EjerciciosKotlin.pdf) | Alumnado | Cómo se usa el programa, con un ejemplo de cada ejercicio |
 | 🛠️ [Manual técnico](docs/Manual_Tecnico_EjerciciosKotlin.pdf) | Quien mantenga o amplíe el proyecto | Arquitectura, decisiones de diseño, modelo de clases, distribución y cómo añadir un bloque |
-| 🔎 [API](docs/api/index.html) | Programadores | Cada función, clase y propiedad, con buscador y enlaces |
+| 🔎 [API](api) | Programadores | Cada función, clase y propiedad, con buscador y enlaces |
 
-> [!NOTE]
-> GitHub muestra el código de `docs/api/index.html`, no la página. Para verla, descarga el repositorio y ábrela en el navegador, o publícala con **Settings → Pages → Deploy from a branch → `master` / `docs`**. Quedará en `https://ccnl10.github.io/EjerciciosKotlin/api/`.
 
 ## ➕ Añadir un bloque nuevo
 

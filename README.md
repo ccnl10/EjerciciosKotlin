@@ -10,13 +10,11 @@ Aplicación de consola con los ejercicios resueltos de la **UT1** del módulo<br
 [![Kotlin](https://img.shields.io/badge/Kotlin-2.4-7F52FF?style=for-the-badge&logo=kotlin&logoColor=white)](https://kotlinlang.org/)
 [![JDK](https://img.shields.io/badge/JDK-21-E76F00?style=for-the-badge&logo=openjdk&logoColor=white)](https://learn.microsoft.com/java/openjdk/)
 [![IntelliJ IDEA](https://img.shields.io/badge/IntelliJ_IDEA-000000?style=for-the-badge&logo=intellijidea&logoColor=white)](https://www.jetbrains.com/idea/)
-![Bloques](https://img.shields.io/badge/bloques-5-3A66C4?style=for-the-badge)
-![Ejercicios](https://img.shields.io/badge/ejercicios-42-3FA34D?style=for-the-badge)
 [![API](https://img.shields.io/badge/API-documentaci%C3%B3n-C3410F?style=for-the-badge&logo=readthedocs&logoColor=white)](https://ccnl10.github.io/EjerciciosKotlin/api/)
 
 [**Cómo ejecutarlo**](#-cómo-ejecutarlo) ·
 [**Contenido**](#-contenido) ·
-[**Estructura**](#-estructura-del-proyecto) ·
+[**Estructura**](#estructura) ·
 [**Documentación**](#-documentación) ·
 [**API**](https://ccnl10.github.io/EjerciciosKotlin/api/)
 
@@ -161,6 +159,7 @@ class Perro(nombre: String) : Canino(nombre), Mascota {   // una clase con (), l
     // ...
 }
 ```
+<a id="estructura"></a>
 
 ## 🗂️ Estructura del proyecto
 

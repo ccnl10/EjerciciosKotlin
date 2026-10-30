@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EjerciciosKotlin · UT1 Fundamentos de Kotlin</title>
+<meta name="description" content="Ejercicios resueltos de la UT1 de Kotlin (2º DAM): variables, condicionales, funciones, lambdas, colecciones, clases, herencia e interfaces.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#f7f6fb; --panel:#ffffff; --ink:#1b1a24; --muted:#636275; --line:#e4e2ee;
+  --k1:#7F52FF; --k2:#C711E1; --k3:#E44857;
+  --verde:#2f9a4c; --azul:#3a66c4; --cian:#1e9aa8; --amarillo:#c08a12; --rojo:#d1433b;
+  --code-bg:#1e1f26; --code-ink:#d7d9df;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg:#111118; --panel:#1a1a24; --ink:#ecebf3; --muted:#a3a2b5; --line:#2c2b3a;
+    --verde:#5fd16c; --azul:#7fa8ff; --cian:#4fd1d9; --amarillo:#f2c94c; --rojo:#ff6b6b;
+  }
+}
+:root[data-theme="dark"] {
+  --bg:#111118; --panel:#1a1a24; --ink:#ecebf3; --muted:#a3a2b5; --line:#2c2b3a;
+  --verde:#5fd16c; --azul:#7fa8ff; --cian:#4fd1d9; --amarillo:#f2c94c; --rojo:#ff6b6b;
+}
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); font:17px/1.6 Inter, system-ui, sans-serif; }
+a { color:inherit; }
+code { font-family:"JetBrains Mono", ui-monospace, monospace; font-size:.86em; background:var(--line); padding:1px 5px; border-radius:4px; }
+.wrap { max-width:1100px; margin:0 auto; padding:0 16px; }
+
+/* Portada */
+.hero { position:relative; background:#14121f; color:#f2f0fa; padding:26px 0 70px; overflow:hidden; }
+.hero::before { content:""; position:absolute; inset:-40% -10% auto auto; width:720px; height:720px;
+  background:conic-gradient(from 200deg, var(--k1), var(--k2), var(--k3), var(--k1)); filter:blur(120px); opacity:.35; }
+.hero .wrap { position:relative; }
+.top { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:52px; }
+.marca { display:flex; align-items:center; gap:10px; font-weight:800; text-decoration:none; letter-spacing:-.01em; }
+.logo { width:26px; height:26px; }
+.top nav { display:flex; gap:18px; align-items:center; font-size:14px; }
+.top nav a { text-decoration:none; opacity:.8; } .top nav a:hover { opacity:1; }
+#tema { background:transparent; border:1px solid rgba(255,255,255,.3); color:inherit; border-radius:999px; padding:4px 11px; font:inherit; font-size:13px; cursor:pointer; }
+.hero-grid { display:grid; grid-template-columns:1.05fr .95fr; gap:44px; align-items:center; }
+.kicker { font:600 12px Inter, sans-serif; letter-spacing:.16em; text-transform:uppercase; margin:0 0 14px;
+  background:linear-gradient(90deg, #b59bff, #f08bff); -webkit-background-clip:text; background-clip:text; color:transparent; }
+h1 { font-weight:800; font-size:clamp(38px,6.4vw,64px); line-height:1.02; letter-spacing:-.035em; margin:0; }
+h1 span { background:linear-gradient(90deg, var(--k1), var(--k2) 55%, var(--k3)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.lead { font-size:19px; color:rgba(242,240,250,.82); margin:18px 0 26px; max-width:36ch; }
+.botones { display:flex; gap:12px; flex-wrap:wrap; }
+.btn { display:inline-flex; align-items:center; gap:8px; text-decoration:none; font-weight:600; font-size:15px; padding:11px 18px; border-radius:10px; }
+.btn.primario { background:linear-gradient(90deg, var(--k1), var(--k2)); color:#fff; }
+.btn.primario:hover { filter:brightness(1.1); }
+.btn.secundario { border:1px solid rgba(255,255,255,.3); }
+.btn.secundario:hover { background:rgba(255,255,255,.08); }
+.cifras { display:flex; gap:28px; margin-top:34px; flex-wrap:wrap; }
+.cifras b { display:block; font-size:30px; font-weight:800; letter-spacing:-.02em; }
+.cifras span { font-size:13px; color:rgba(242,240,250,.65); }
+.captura { width:100%; height:auto; filter:drop-shadow(0 24px 44px rgba(0,0,0,.5)); }
+
+/* Secciones */
+section { padding:68px 0 6px; }
+h2 { font-weight:800; font-size:clamp(26px,3.8vw,34px); line-height:1.15; letter-spacing:-.02em; margin:0 0 8px; }
+.sub { color:var(--muted); margin:0 0 28px; max-width:62ch; }
+
+.bloques { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:14px; }
+.bloque { background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:20px; display:flex; flex-direction:column; }
+.bloque .num { font:800 13px "JetBrains Mono", monospace; color:var(--k1); letter-spacing:.06em; }
+.bloque h3 { margin:6px 0 6px; font-size:19px; letter-spacing:-.01em; }
+.bloque p { margin:0 0 12px; color:var(--muted); font-size:15px; }
+.chips { display:flex; flex-wrap:wrap; gap:6px; margin-top:auto; }
+.chips span { font:500 12px "JetBrains Mono", monospace; border:1px solid var(--line); border-radius:6px; padding:2px 7px; color:var(--muted); }
+details { margin-top:12px; border-top:1px dashed var(--line); padding-top:10px; font-size:14px; }
+summary { cursor:pointer; font-weight:600; color:var(--k1); }
+details ol { margin:8px 0 0; padding-left:20px; color:var(--muted); }
+details li { margin:2px 0; }
+.reto { color:var(--ink); font-weight:600; }
+
+.rasgos { display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:14px; }
+.rasgo { padding:4px 0; }
+.rasgo .ic { font-size:24px; }
+.rasgo h3 { margin:6px 0 4px; font-size:17px; }
+.rasgo p { margin:0; color:var(--muted); font-size:15px; }
+.colores { display:flex; flex-wrap:wrap; gap:10px; margin-top:26px; }
+.colores span { display:inline-flex; align-items:center; gap:8px; font-size:14px; background:var(--panel); border:1px solid var(--line); border-radius:999px; padding:5px 12px; }
+.colores i { width:10px; height:10px; border-radius:50%; display:inline-block; }
+
+/* Árbol del zoo */
+.zoo { display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:center; }
+.arbol { background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:22px; font:14px "JetBrains Mono", monospace; }
+.arbol ul { list-style:none; margin:0; padding-left:22px; border-left:2px solid var(--line); }
+.arbol > ul { padding-left:0; border:0; }
+.arbol li { margin:8px 0; position:relative; }
+.arbol ul ul li::before { content:""; position:absolute; left:-22px; top:11px; width:16px; border-top:2px solid var(--line); }
+.n { display:inline-block; padding:2px 9px; border-radius:6px; border:1px solid var(--line); background:var(--bg); }
+.n.abs { font-style:italic; }
+.n.mas { border-color:var(--k1); color:var(--k1); }
+.tag { font:500 11px Inter, sans-serif; color:var(--muted); margin-left:6px; }
+pre { background:var(--code-bg); color:var(--code-ink); padding:16px 18px; border-radius:12px; overflow-x:auto; margin:0; font:14px/1.55 "JetBrains Mono", monospace; }
+pre code { background:none; padding:0; color:inherit; font-size:1em; }
+.kw { color:#c79bff; } .ty { color:#7fd0ff; } .st { color:#9fd59a; } .cm { color:#7d8090; }
+
+.instalar { display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:start; }
+.hero-grid > *, .zoo > *, .instalar > *, .bloque, .doc { min-width:0; }
+.instalar ol { margin:0; padding-left:22px; } .instalar li { margin:6px 0; }
+
+.docs { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:14px; }
+.doc { display:block; text-decoration:none; background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:20px; transition:border-color .15s, transform .15s; }
+.doc:hover { border-color:var(--k1); transform:translateY(-2px); }
+.doc .ic { font-size:26px; }
+.doc h3 { margin:8px 0 4px; font-size:18px; }
+.doc p { margin:0 0 10px; color:var(--muted); font-size:15px; }
+.doc .ir { color:var(--k1); font-weight:600; font-size:14px; }
+
+footer { margin-top:76px; border-top:1px solid var(--line); padding:24px 0 40px; color:var(--muted); font-size:14px; }
+footer .wrap { display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+
+@media (max-width:900px) {
+  .hero-grid, .zoo, .instalar { grid-template-columns:1fr; }
+  .bloques, .docs { grid-template-columns:1fr 1fr; }
+  .rasgos { grid-template-columns:1fr 1fr; }
+  .top nav .opc { display:none; }
+}
+@media (max-width:560px) {
+  .bloques, .docs, .rasgos { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="top">
+      <a class="marca" href="#">
+        <svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="kg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#E44857"/><stop offset=".5" stop-color="#C711E1"/><stop offset="1" stop-color="#7F52FF"/></linearGradient></defs><path d="M2 2h20L12 12l10 10H2z" fill="url(#kg)"/></svg>
+        EjerciciosKotlin
+      </a>
+      <nav aria-label="Secciones">
+        <a class="opc" href="#bloques">Bloques</a>
+        <a class="opc" href="#zoo">El zoo</a>
+        <a class="opc" href="#documentacion">Documentación</a>
+        <a href="https://github.com/ccnl10/EjerciciosKotlin">GitHub ↗</a>
+        <button id="tema" type="button" aria-label="Cambiar entre tema claro y oscuro">◐</button>
+      </nav>
+    </div>
+    <div class="hero-grid">
+      <div>
+        <p class="kicker">UT1 · Desarrollo de Interfaces · 2º DAM</p>
+        <h1>Fundamentos de <span>Kotlin</span>, ejercicio a ejercicio</h1>
+        <p class="lead">Todos los ejercicios resueltos de la unidad en un solo programa de consola, con menús, ayuda y el código documentado.</p>
+        <div class="botones">
+          <a class="btn primario" href="https://github.com/ccnl10/EjerciciosKotlin/archive/refs/heads/master.zip">⬇ Descargar el proyecto</a>
+          <a class="btn secundario" href="api/">🔎 Ver la API</a>
+        </div>
+        <div class="cifras">
+          <div><b>5</b><span>bloques</span></div>
+          <div><b>42</b><span>ejercicios y retos</span></div>
+          <div><b>100 %</b><span>documentado con KDoc</span></div>
+        </div>
+      </div>
+      <img class="captura" src="img/consola.png" alt="Captura del programa: el menú principal en verde, el menú del bloque 5 en azul y un ejemplo del zoo" width="640" height="759">
+    </div>
+  </div>
+</header>
+
+<main>
+  <section id="bloques">
+    <div class="wrap">
+      <h2>Qué hay dentro</h2>
+      <p class="sub">Cada bloque practica un tema de la unidad. Empieza por el 1: cada uno usa lo que ya has aprendido en los anteriores.</p>
+      <div class="bloques">
+        <article class="bloque">
+          <span class="num">BLOQUE 1</span><h3>Variables, tipos y operadores</h3>
+          <p>Los primeros pasos: guardar datos, operar con ellos y mostrarlos.</p>
+          <div class="chips"><span>val</span><span>var</span><span>Int · Double</span><span>"$plantillas"</span></div>
+          <details><summary>6 ejercicios</summary><ol><li>Preséntate</li><li>¿val o var?</li><li>Encuentra los errores</li><li>Conversor de temperatura</li><li>Calculadora de precio</li><li>Recibo del presupuesto</li></ol></details>
+        </article>
+        <article class="bloque">
+          <span class="num">BLOQUE 2</span><h3>Condicionales, rangos y bucles</h3>
+          <p>Tomar decisiones y repetir: el programa empieza a pensar.</p>
+          <div class="chips"><span>if</span><span>when</span><span>1..10</span><span>for · while</span></div>
+          <details><summary>6 ejercicios + reto</summary><ol><li>Gastos de envío</li><li>De nota a calificación</li><li>Tabla de multiplicar</li><li>Predice la salida</li><li>Mes del año</li><li>Mes y estación</li><li class="reto">🏆 Adivina el número</li></ol></details>
+        </article>
+        <article class="bloque">
+          <span class="num">BLOQUE 3 · PARTE 1</span><h3>Funciones</h3>
+          <p>Dividir el programa en piezas con nombre, parámetros y resultado.</p>
+          <div class="chips"><span>fun</span><span>valores por defecto</span><span>argumentos con nombre</span></div>
+          <details><summary>6 ejercicios + 2 retos</summary><ol><li>Saludos</li><li>Conversor de unidades</li><li>Generador de nombres de usuario</li><li>Cláusulas de guarda</li><li>Encuentra los errores</li><li>Calculadora de productos</li><li class="reto">🏆 Mes y estación</li><li class="reto">🏆 Adivina el número</li></ol></details>
+        </article>
+        <article class="bloque">
+          <span class="num">BLOQUE 3 · PARTE 2</span><h3>Expresiones lambda</h3>
+          <p>Funciones como valores: se guardan, se pasan y se devuelven.</p>
+          <div class="chips"><span>{ x -> }</span><span>it</span><span>(Int) -> Int</span><span>orden superior</span></div>
+          <details><summary>6 ejercicios + reto</summary><ol><li>De función a lambda</li><li>Ponle nombre al tipo</li><li>Calculadora con lambdas</li><li>Analizador de textos</li><li>Tu propio repeat</li><li>Predice la salida</li><li class="reto">🏆 Reglas de descuento</li></ol></details>
+        </article>
+        <article class="bloque">
+          <span class="num">BLOQUE 4</span><h3>Nulos y colecciones</h3>
+          <p>Trabajar sin miedo a <code>null</code> y manejar listas, conjuntos y mapas.</p>
+          <div class="chips"><span>?.</span><span>?:</span><span>List · Set · Map</span><span>filter · map</span></div>
+          <details><summary>6 ejercicios + reto</summary><ol><li>Entrada segura</li><li>Predice la salida</li><li>Agenda de contactos</li><li>Análisis de notas</li><li>Visitantes únicos</li><li>Lista de productos</li><li class="reto">🏆 Tienda con stock</li></ol></details>
+        </article>
+        <article class="bloque">
+          <span class="num">BLOQUE 5</span><h3>Clases, herencia e interfaces</h3>
+          <p>Programación orientada a objetos, con el ejemplo del zoo de Java llevado a Kotlin.</p>
+          <div class="chips"><span>open</span><span>abstract</span><span>interface</span><span>data · enum · object</span></div>
+          <details><summary>Zoo + 6 ejercicios + reto</summary><ol><li>Tu primera clase</li><li>Setter con validación</li><li>Encuentra los errores</li><li>Instrumentos</li><li>Aves</li><li>Fichas del refugio</li><li class="reto">🏆 Refugio de animales</li></ol></details>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>Pensado para aprender</h2>
+      <p class="sub">El programa es en sí mismo un ejemplo de cómo organizar un proyecto.</p>
+      <div class="rasgos">
+        <div class="rasgo"><div class="ic">🧭</div><h3>Un único programa</h3><p>Eliges bloque y ejercicio en un menú. Al terminar, vuelves al menú sin arrancar nada otra vez.</p></div>
+        <div class="rasgo"><div class="ic">❓</div><h3>Ayuda en cada menú</h3><p>Escribe <code>?</code> y verás qué hace cada opción. Con <code>0</code> vuelves atrás.</p></div>
+        <div class="rasgo"><div class="ic">🛡️</div><h3>A prueba de errores</h3><p>Un texto donde se espera un número nunca detiene el programa.</p></div>
+        <div class="rasgo"><div class="ic">📚</div><h3>Código comentado</h3><p>Los comentarios explican el porqué de cada solución, y KDoc lo que hace cada función.</p></div>
+      </div>
+      <div class="colores" aria-label="Colores de la consola">
+        <span><i style="background:var(--verde)"></i>Menú principal</span>
+        <span><i style="background:var(--azul)"></i>Menús de bloque</span>
+        <span><i style="background:var(--cian)"></i>Submenús</span>
+        <span><i style="background:var(--amarillo)"></i>Avisos y ayuda</span>
+        <span><i style="background:var(--rojo)"></i>Errores</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="zoo">
+    <div class="wrap zoo">
+      <div>
+        <h2>El ejemplo del zoo</h2>
+        <p class="sub">La jerarquía de animales que estudiaste en Java, escrita en Kotlin. Fíjate en lo que cambia: <code>open</code>, los dos puntos para heredar y las interfaces sin paréntesis.</p>
+        <pre><code><span class="kw">class</span> <span class="ty">Perro</span>(nombre: <span class="ty">String</span>) : <span class="ty">Canino</span>(nombre), <span class="ty">Mascota</span> {
+    <span class="kw">override fun</span> hacerRuido() = println(<span class="st">"$nombre: ¡Guau!"</span>)
+    <span class="kw">override fun</span> jugar() = println(<span class="st">"$nombre persigue la pelota"</span>)
+    <span class="kw">fun</span> traerPalo() = println(<span class="st">"$nombre trae el palo"</span>)
+}
+
+<span class="cm">// Polimorfismo: cada animal, a su manera</span>
+<span class="kw">for</span> (a <span class="kw">in</span> animales) a.hacerRuido()</code></pre>
+      </div>
+      <div class="arbol" role="img" aria-label="Árbol de clases: Animal es abstracta; de ella heredan Canino, Felino e Hipopotamo; Lobo y Perro heredan de Canino; Gato hereda de Felino; Perro y Gato implementan la interfaz Mascota">
+        <ul>
+          <li><span class="n abs">Animal</span><span class="tag">abstract</span>
+            <ul>
+              <li><span class="n abs">Canino</span><span class="tag">abstract · va en manada</span>
+                <ul>
+                  <li><span class="n">Lobo</span></li>
+                  <li><span class="n">Perro</span> <span class="n mas">Mascota</span></li>
+                </ul>
+              </li>
+              <li><span class="n abs">Felino</span><span class="tag">abstract · pasea solo</span>
+                <ul>
+                  <li><span class="n">Gato</span> <span class="n mas">Mascota</span></li>
+                </ul>
+              </li>
+              <li><span class="n">Hipopotamo</span></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="instalar">
+    <div class="wrap instalar">
+      <div>
+        <h2>Ponlo en marcha</h2>
+        <p class="sub" style="margin-bottom:14px">Necesitas IntelliJ IDEA y un JDK 17 o superior.</p>
+        <ol>
+          <li>Descarga el proyecto o clónalo.</li>
+          <li>En IntelliJ: <b>File → Open</b> y elige la carpeta <code>EjerciciosKotlin</code>.</li>
+          <li>Abre <code>src/Main.kt</code> y pulsa ▶ junto a <code>fun main()</code>.</li>
+          <li>Escribe el número de una opción y pulsa Intro.</li>
+        </ol>
+      </div>
+      <pre><code>git clone https://github.com/ccnl10/EjerciciosKotlin.git</code></pre>
+    </div>
+  </section>
+
+  <section id="documentacion">
+    <div class="wrap">
+      <h2>Documentación</h2>
+      <p class="sub">Como en un proyecto de empresa: manual para quien lo usa, manual para quien lo mantiene y referencia del código.</p>
+      <div class="docs">
+        <a class="doc" href="Manual_Usuario_EjerciciosKotlin.pdf"><div class="ic">📘</div><h3>Manual de usuario</h3><p>Cómo se usa el programa, con un ejemplo de cada ejercicio.</p><span class="ir">Abrir PDF →</span></a>
+        <a class="doc" href="Manual_Tecnico_EjerciciosKotlin.pdf"><div class="ic">🛠️</div><h3>Manual técnico</h3><p>Arquitectura, decisiones de diseño, modelo de clases y cómo añadir un bloque.</p><span class="ir">Abrir PDF →</span></a>
+        <a class="doc" href="api/"><div class="ic">🔎</div><h3>API</h3><p>Cada función, clase y propiedad, con buscador y enlaces.</p><span class="ir">Ver la API →</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Desarrollo de Interfaces · 2º DAM · IES Virrey Morcillo</span>
+    <a href="https://github.com/ccnl10/EjerciciosKotlin">Código en GitHub</a>
+  </div>
+</footer>
+
+<script>
+(function () {
+  const raiz = document.documentElement;
+  try { const t = localStorage.getItem('tema-ejkotlin'); if (t) raiz.dataset.theme = t; } catch (e) {}
+  document.getElementById('tema').addEventListener('click', () => {
+    const oscuro = raiz.dataset.theme ? raiz.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+    raiz.dataset.theme = oscuro ? 'light' : 'dark';
+    try { localStorage.setItem('tema-ejkotlin', raiz.dataset.theme); } catch (e) {}
+  });
+})();
+</script>
+</body>
+</html>

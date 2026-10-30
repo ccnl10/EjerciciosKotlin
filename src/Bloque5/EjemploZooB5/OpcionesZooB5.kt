@@ -62,6 +62,7 @@ fun horaDeComer(animales: List<Animal>) {
         if (a.tieneHambre) {
             print("Hambre ${a.hambre} → ")
             a.comer()
+
         } else {
             println("${a.nombre} no tiene hambre (hambre ${a.hambre})")
         }

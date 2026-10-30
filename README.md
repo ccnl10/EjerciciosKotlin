@@ -216,7 +216,7 @@ El código está organizado en capas, de modo que cada archivo tiene un solo pap
 |---|---|---|
 | 📘 [Manual de usuario](docs/Manual_Usuario_EjerciciosKotlin.pdf) | Alumnado | Cómo se usa el programa, con un ejemplo de cada ejercicio |
 | 🛠️ [Manual técnico](docs/Manual_Tecnico_EjerciciosKotlin.pdf) | Quien mantenga o amplíe el proyecto | Arquitectura, decisiones de diseño, modelo de clases, distribución y cómo añadir un bloque |
-| 🔎 [API](api) | Programadores | Cada función, clase y propiedad, con buscador y enlaces |
+| 🔎 [API](https://ccnl10.github.io/EjerciciosKotlin/api/) | Programadores | Cada función, clase y propiedad, con buscador y enlaces |
 
 
 ## ➕ Añadir un bloque nuevo
